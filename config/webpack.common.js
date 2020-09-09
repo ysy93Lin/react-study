@@ -29,18 +29,21 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.js(x?)$/,
                 use: 'babel-loader',
                 exclude: /node_modules/   // 不应该包含node_modules文件夹
             },
             {
-                test: /\.(s)css$/,
+                test: /\.(s?)css$/,
                 use: ["style-loader", "css-loader", "sass-loader"]
             }
         ],
         
     },
     resolve: {
-        extensions: [".js", '.jsx']
+        extensions: [".js", '.jsx'],
+        alias: {
+            "@": path.resolve(__dirname, "../src")
+        }
     }
 }
